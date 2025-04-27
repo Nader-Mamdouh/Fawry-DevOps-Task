@@ -55,4 +55,4 @@ I would also modify the argument parsing logic to handle these new options, ensu
 ## Screenshot of Terminal
 In this screenshot, the script mygrep.sh is executed successfully in the terminal. The script performs a search for a specified string within a given file, with several options for controlling the output. I have also implemented error handling to ensure the script behaves correctly even when invalid inputs are provided.
 The script can be customized with different options, such as showing line numbers or inverting the match, and it handles both valid and erroneous inputs gracefully. Feel free to try out the script for yourself and explore its functionality!
-![Terminal Screenshot](https://github.com/Nader-Mamdouh/Fawry-DevOps-Task/blob/main/Custom_Command/Fawry%20Devops%20Task-Q1.png)
+![Terminal Screenshot](https://github.com/Nader-Mamdouh/Fawry-DevOps-Task/blob/main/Custom_Command/Fawry%20Devops%20Task%20Q1.png)
