@@ -53,8 +53,8 @@ line_number=0
 while IFS= read -r line; do
     ((line_number++))
     # Case-insensitive match
-    if echo "$line" | grep -iq "$search_string"; then
-        match=true
+    if [[ "$line" =~ "$search_string" ]]; then    
+    	match=true
     else
         match=false
     fi
