@@ -16,9 +16,9 @@ To use the script, run it from the terminal as follows:
 
 
 ## Breakdown of how the script handles arguments and options:
-Initial Setup:
-The script begins by defining a function show_help(), which displays usage instructions for the script. If the --help flag is passed as the first argument, this function is triggered and the script exits after displaying the help message.
-Option Parsing:
+1) Initial Setup:
+The script begins by defining a function show_help(), which displays usage instructions for the script. If the --help flag is passed as the first argument, this function is triggered, and the script exits after displaying the help message.
+2) Option Parsing:
 The script then initializes two flags (show_line_number and invert_match) to false, indicating the default behavior of the script (no line numbers, normal match).
 The while loop checks for arguments that start with a - (options). For each option:
 -n: Activates line numbers in the output.
@@ -26,12 +26,12 @@ The while loop checks for arguments that start with a - (options). For each opti
 -vn or -nv: Both options enable line numbers and inverted matching.
 --help: Calls the show_help() function to display usage information.
 If an invalid option is passed, the script outputs an error message and shows the help information.
-Shifting Arguments:
+3) Shifting Arguments:
 After processing options, the shift command is used to move past the options, allowing $1 and $2 to represent the search string ($search_string) and the file name ($search_file).
-Argument Validation:
+4) Argument Validation:
 The script checks if either the search string or the file name is missing. If either is missing, an error message is displayed, and the help message is shown.
 It also checks if the file exists using [[ ! -f "$search_file" ]]. If the file doesn't exist, an error message is displayed, and the script exits.
-Search Logic:
+5)Search Logic:
 The script reads the file line by line using a while loop.
 For each line, it checks if the line matches the search string using the =~ operator, which allows for regex matching.
 If the -v option is set (invert match), lines that do not match are displayed.
