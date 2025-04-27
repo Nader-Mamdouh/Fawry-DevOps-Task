@@ -51,3 +51,8 @@ I would also modify the argument parsing logic to handle these new options, ensu
 1) Handling options together (-vn, -nv) without getopts can be tricky.
 2) making sure the script behaves exactly like grep (especially in inverted mode).
 3) After handling options, the script needs to correctly "shift" the arguments so that $1 is the search string and $2 is the filename. This can become confusing, especially when options are combined or if no options are passed at all.
+
+## Screenshot of Terminal
+In this screenshot, the script mygrep.sh is executed successfully in the terminal. The script performs a search for a specified string within a given file, with several options for controlling the output. I have also implemented error handling to ensure the script behaves correctly even when invalid inputs are provided.
+The script can be customized with different options, such as showing line numbers or inverting the match, and it handles both valid and erroneous inputs gracefully. Feel free to try out the script for yourself and explore its functionality!
+![Terminal Screenshot](https://github.com/Nader-Mamdouh/Fawry-DevOps-Task/blob/main/Custom_Command/Fawry%20Devops%20Task-Q1.png)
