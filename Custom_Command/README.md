@@ -31,7 +31,7 @@ After processing options, the shift command is used to move past the options, al
 4) Argument Validation:
 The script checks if either the search string or the file name is missing. If either is missing, an error message is displayed, and the help message is shown.
 It also checks if the file exists using [[ ! -f "$search_file" ]]. If the file doesn't exist, an error message is displayed, and the script exits.
-5)Search Logic:
+5) Search Logic:
 The script reads the file line by line using a while loop.
 For each line, it checks if the line matches the search string using the =~ operator, which allows for regex matching.
 If the -v option is set (invert match), lines that do not match are displayed.
@@ -40,13 +40,14 @@ The match variable determines whether the line matches the search string, and th
 
  ## A short paragraph: If you were to support regex or -i/-c/-l options, how would your structure change?
 To support regex or options like -i (case-insensitive), -c (count matches), and -l (list matching filenames), I would modify the structure as follows:
-Regex Support: The search string ($search_string) would be processed as a regex. I would update the search logic to handle regex matching using [[ "$line" =~ $search_string ]] for pattern matching.
--i Option: This would enable case-insensitive matching. I would convert both the line and search string to lowercase (or uppercase) before comparison to ensure case insensitivity.
--c Option: Instead of printing matches, I would count how many lines match the search criteria and print the total count.
--l Option: Instead of printing matching lines, I would print the filenames that contain the search string.
+
+1) Regex Support: The search string ($search_string) would be processed as a regex. I would update the search logic to handle regex matching using [[ "$line" =~ $search_string ]] for pattern matching.
+2) -i Option: This would enable case-insensitive matching. I would convert both the line and search string to lowercase (or uppercase) before comparison to ensure case insensitivity.
+3) -c Option: Instead of printing matches, I would count how many lines match the search criteria and print the total count.
+4) -l Option: Instead of printing matching lines, I would print the filenames that contain the search string.
 I would also modify the argument parsing logic to handle these new options, ensuring that they could be combined with others like -n, -v, and -vn. This would require an additional condition check within the search loop to handle different actions for each option.
 
-## What part was hardest?
+## What part was the hardest?
 1) Handling options together (-vn, -nv) without getopts can be tricky.
 2) making sure the script behaves exactly like grep (especially in inverted mode).
 3) After handling options, the script needs to correctly "shift" the arguments so that $1 is the search string and $2 is the filename. This can become confusing, especially when options are combined or if no options are passed at all.
