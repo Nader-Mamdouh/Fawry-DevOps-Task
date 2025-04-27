@@ -12,13 +12,14 @@ To diagnose, we will compare DNS resolution using:
 ```bash
 cat /etc/resolv.conf
 ```
+![Terminal Screenshot](https://github.com/Nader-Mamdouh/Fawry-DevOps-Task/blob/main/Scenario/images/Screenshot%202025-04-28%20015958.png)
 ### **2. Resolve the domain using the system's DNS**  
 ```bash
 dig internal.example.com
 ```
 ### **3. Resolve the domain using Google's DNS (8.8.8.8):**  
 ```bash
-dig internal.example.com
+dig@8.8.8.8 internal.example.com
 ```
 ## **Expected Outcome**
 1) If both DNS resolutions return the same IP address, DNS resolution is functioning correctly.
@@ -42,6 +43,7 @@ Check if the service is listening on ports 80 and 443:
 ```bash
 netstat -tuln | grep -E '80|443'
 ```
+![Terminal Screenshot](https://github.com/Nader-Mamdouh/Fawry-DevOps-Task/blob/main/Scenario/images/Screenshot%202025-04-28%20020055.png)
 This will show if the web service (e.g., Nginx, Apache) is actively listening on the expected ports.
 
 Check if the service is reachable via curl:
@@ -97,6 +99,7 @@ sudo nano /etc/hosts
 # Add the following entry:
 resolved_ip internal.example.com
 ```
+![Terminal Screenshot](https://github.com/Nader-Mamdouh/Fawry-DevOps-Task/blob/main/Scenario/images/Screenshot%202025-04-28%20015909.png)
 2) Persist DNS Settings: For systemd-resolved:
 
 ```bash
@@ -104,6 +107,7 @@ sudo nano /etc/systemd/resolved.conf
 # Add DNS settings:
 DNS=8.8.8.8
 ```
+![Terminal Screenshot](https://github.com/Nader-Mamdouh/Fawry-DevOps-Task/blob/main/Scenario/images/Screenshot%202025-04-28%20015745.png)
 3) Restart the resolver:
 
 ```bash
